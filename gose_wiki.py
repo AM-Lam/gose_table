@@ -44,27 +44,25 @@ for table in tables:
             df_headers.append(t.text)
         df_headers.append('Descriptions')
     
-    # little flag for combining every 2 rows
-    isAdd = False
+    # Descending adding rows to the table to combine occasional description
+    # by delaying the addition until all the information included
     row = []
-    check_row_num = -1
     for tr in table.find_all('tr')[1:]:
-        # for e in tr:
-        #     row.append(e.text)
-        check_row_num += 1
-        if isAdd:
-            row.append(tr.text)
+        ep_num = tr.contents[0].text
+        
+        # delay device, adding and resetting the row
+        if (ep_num.isdigit()):            
             pd_to_tables.append(row)
-
             row = []
-            isAdd = False
-            continue
-        else:  
-            for e in tr:
-                row.append(e.text)
-                
-            isAdd = True
-
+        
+        for e in tr:
+            if (len(row) >= 7):
+                continue
+            row.append(e.text)
+    
+    # adding the last row manually
+    pd_to_tables.append(row)
+    
     pd_to_tables = pd.DataFrame(pd_to_tables)
     pd_to_tables.columns = df_headers
     df = pd_to_tables.copy()
@@ -74,11 +72,10 @@ for table in tables:
     else:
         df_list = pd.concat([df_list, df])
     
-    # df_list = pd.concat([df_list, df]) if num_tables == 1 else df.copy()
     
     num_tables += 1
 
-df_list.to_csv('temp.csv', encoding='utf-8', index=False)
+df_list.to_csv('tables.csv', encoding='utf-8', index=False)
 # # add to pd
 # # print(table_title)
 # # print(pd_to_tables[1][1])
