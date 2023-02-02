@@ -76,33 +76,6 @@ for table in tables:
     num_tables += 1
 
 df_list.to_csv('tables.csv', encoding='utf-8', index=False)
-# # add to pd
-# # print(table_title)
-# # print(pd_to_tables[1][1])
-# # print(df)
-# # result = pd.concat(df_list)
-# with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-#     print (df_list)
-# # print(df_list)
-# # df_list.head(3)
 
-# # Finally, we’re able to solve this by collecting the title attribute and get the required output.
-
-# # We collected all the rows except the 1st row from the req_table using find_all(‘tr’)[1:].
-# # Then collected all the column data for each row using tr.find_all(‘td’).
-# # The movie title is ialln the anchor tag with the name ‘title’. As there is only one title for each <a> we using find() method to grab the title and append it to the list.
-# mylist = []
-# for tr in tables.find_al numpy as np
-# import pandas as pdl('tr')[1:]:
-#     tds = tr.find_all('td')
-#     name = tds[1].contents# Get the attribute of all the tables from the first tables
-    # for tr_t in tr:
-    #     table_title.append(tr_t.text)
-#     ##print(tds) 
-#     ##print(name)
-#     ##print("---")
-#     a = name.find('a') 
-#     mylist.append(a.get('title'))
-# print(my_list)
 
 
