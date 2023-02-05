@@ -1,4 +1,5 @@
-# Displaying all the Going Seventeen episode on one table(Credit to Wiki and whoever upload the info!)
+# Going Seventeen ep Table
+## Displaying all the Going Seventeen episode on one table(Credit to Wiki and whoever upload the info!)
 Generate a list of going seventeen episodes from 2019 to the current day(as long as they are updated in the wiki page), with the information of year and number of episodes. 
 
 ## How to make 
